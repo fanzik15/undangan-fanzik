@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan | Wulan & Affan</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>Wulan & Affan</h1>
+      <p>20 Juli 2025 — Medan</p>
+    </div>
+  </div>
+
+  <section class="section intro">
+    <h2>Assalamu’alaikum Warahmatullahi Wabarakatuh</h2>
+    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.</p>
+  </section>
+
+  <section class="section couple">
+    <div class="couple-container">
+      <div class="person">
+        <img src="ulan.jpeg" alt="Wulan" />
+        <h3>Sri Wulan Siregar</h3>
+        <p>Putri dari Bapak Alm. Syafiruddin Siregar & Ibu Maimunah</p>
+      </div>
+      <div class="and">&</div>
+      <div class="person">
+        <img src="affan.jpg" alt="Affan" />
+        <h3>Affan Zikirullah S.H.</h3>
+        <p>Putra dari Bapak Muslim & Ibu Aszunur Riwani</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section acara">
+    <h2>Detail Acara</h2>
+    <p><strong>Akad:</strong> Sabtu, 20 Juli 2025 | 09.00 WIB</p>
+    <p><strong>Resepsi:</strong> 11.00 – 14.00 WIB</p>
+    <p><strong>Tempat:</strong> Gedung Griya Benn, Jl. T. Amir Hamzah, Medan</p>
+    <a href="https://www.google.com/maps/place/Griya+Benn/@3.6082505,98.6495357,17z/data=!3m1!4b1!4m6!3m5!1s0x30312e1b3cd63215:0x90e44b69a5acce14!8m2!3d3.6082451!4d98.6521106!16s%2Fg%2F1hm4rpjp2?entry=ttu&g_ep=EgoyMDI1MDUwMy4wIKXMDSoASAFQAw%3D%3D" class="btn">Lihat Lokasi</a>
+  </section>
+
+  <section class="section rsvp">
+    <h2>Konfirmasi Kehadiran</h2>
+    <p>Silakan klik tombol di bawah untuk konfirmasi kehadiran:</p>
+    <a href="https://wa.me/6281234567890?text=Saya%20akan%20hadir%20di%20acara%20Rina%20dan%20Dimas" class="btn">RSVP via WhatsApp</a>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Wulan & Affan</p>
+  </footer>
+
+<audio id="music" loop>
+  <source src="janjisuci.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+
+<!-- Tombol play/mute -->
+<button id="musicToggle" class="music-btn">▶️</button>
+
+<script>
+  const audio = document.getElementById("music");
+  const button = document.getElementById("musicToggle");
+
+  // Jalankan musik saat user pertama kali klik di mana saja
+  window.addEventListener("click", function () {
+    audio.play();
+  }, { once: true });
+
+  // Tombol toggle
+  button.addEventListener("click", function () {
+    if (audio.paused) {
+      audio.play();
+      button.textContent = "🔊";
+    } else {
+      audio.pause();
+      button.textContent = "🔇";
+    }
+  });
+</script>
+
+
+
+
+
+
+<script>
+  let autoScrollActive = true;
+  let scrollSpeed = 1; // pixel per interval
+
+  function autoScroll() {
+    const interval = setInterval(() => {
+      if (!autoScrollActive) {
+        clearInterval(interval);
+        return;
+      }
+
+      window.scrollBy(0, scrollSpeed);
+
+      // Stop if end of page
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        clearInterval(interval);
+      }
+    }, 20); // semakin kecil = semakin cepat
+  }
+
+  // Jalankan setelah interaksi user
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      autoScroll();
+    }, 1000); // delay 1 detik agar user lihat hero dulu
+  });
+
+  // Stop auto scroll jika user manual scroll
+  window.addEventListener("wheel", () => {
+    autoScrollActive = false;
+  });
+
+  window.addEventListener("touchstart", () => {
+    autoScrollActive = false;
+  });
+</script>
+
+</body>
+
+
+</html>
